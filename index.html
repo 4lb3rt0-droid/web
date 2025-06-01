@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="brand">
+          <h2>A<span>L</span></h2>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="menu" id="menu">
+          <li><a href="#Inicio" class="active">Inicio</a></li>
+          <li><a href="#QuienSoy">Quien Soy</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#Contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      
+    </header>
+
+    <main class="main" id="Inicio">
+      <div class="info-content">
+        <h1>Soy <span>Alberto</span> Lascarro</h1>
+        <p>
+          Soy Alberto Lascarro, diseñador y creador de experiencias interactivas con Realidad Aumentada. Me especializo en el desarrollo de filtros, animaciones y contenido audiovisual que conectan el mundo físico con el digital. A través de mis servicios, ayudo a marcas y creadores a innovar y destacar con soluciones creativas y tecnológicas.
+        </p>
+        <a href="docs/Hoja de vida.pdf" download><button class="download-cv">Descargar hoja de vida</button></a>
+      </div>
+      <img src="img/Foto perfil.jpg" alt="Foto de perfil de Alberto Lascarro" />
+    </main>
+
+    <section class="about" id="QuienSoy">
+      <img src="img/IMG_1007.jpg" alt="Alberto Lascarro trabajando" />
+      <div class="about-info">
+        <h2>¿Quién soy?</h2>
+        <div class="divider"></div>
+        <p>Soy Alberto Lascarro, tengo 22 años y me apasiona la creatividad en todas sus formas. Como diseñador, creador de Realidad Aumentada y productor audiovisual, disfruto fusionando arte y tecnología para generar experiencias interactivas e innovadoras.</p>
+        <p>Me encanta contar historias a través del diseño y los medios digitales, explorando nuevas formas de conectar el mundo físico con el digital. Siempre estoy en búsqueda de ideas frescas y proyectos que desafíen los límites de la creatividad.</p>
+        <button class="download-cv">Leer más</button>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portafolio">
+      <div class="portfolio-heading">
+        <h2>Mis trabajos</h2>
+      </div>
+      <div class="carousel">
+        <button class="carousel-btn prev">&#10094;</button>
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide current-slide">
+              <img src="img/Telax.png" alt="Proyecto Telax" />
+            </li>
+            <li class="carousel-slide">
+              <img src="img/mich marca local.jpg" alt="Proyecto Marca local" />
+            </li>
+            <li class="carousel-slide">
+              <img src="img/IMG_5997.PNG" alt="Proyecto interactivo" />
+            </li>
+            <li class="carousel-slide">
+              <img src="img/2 años RG.PNG" alt="Espacio para proyecto 4" />
+            </li>
+            <li class="carousel-slide">
+              <img src="img/La cabrera.PNG" alt="Espacio para proyecto 5" />
+            </li>
+            <li class="carousel-slide">
+              <img src="img/Mapa RG.PNG" alt="Espacio para proyecto 6" />
+            </li>
+          </ul>
+        </div>
+        <button class="carousel-btn next">&#10095;</button>
+      </div>
+    </section>
+
+    <section class="contact-section" id="Contacto">
+      <div class="contact-heading">
+        <h2>Contáctame</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="container-contact">
+        <img src="img/Foto perfil sin fondo.png" alt="Alberto Lascarro sin fondo" />
+        <div class="contact-form">
+          <h4>Envíame un mensaje...</h4>
+          <form class="form-group" action="https://formspree.io/f/mdkgdjla" method="post">
+            <input type="text" name="name" placeholder="Nombre" class="input" required />
+            <input type="email" name="email" placeholder="Email" class="input" required />
+            <textarea name="message" placeholder="Pon tu mensaje aquí..." required></textarea>
+            <button type="submit" class="btn-submit">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <h2>Alberto Lascarro</h2>
+        <h5>Diseñador Hipermedia</h5>
+      </div>
+      <div class="sotial-networks">
+        <a href="https://www.instagram.com/plax.20?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/alberto_lasca?s=21" target="_blank">
+          <i class="fab fa-twitter-square"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('active');
+    });
+  </script>
+  
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-btn.next');
+    const prevButton = document.querySelector('.carousel-btn.prev');
+  
+    const slideWidth = slides[0].getBoundingClientRect().width + 16; // ancho + margen derecho
+  
+    // Posicionar las slides una al lado de otra
+    slides.forEach((slide, index) => {
+      slide.style.left = slideWidth * index + 'px';
+    });
+  
+    let currentIndex = 0;
+  
+    const moveToSlide = (track, currentSlide, targetSlide) => {
+      track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+      currentSlide.classList.remove('current-slide');
+      targetSlide.classList.add('current-slide');
+      resetHoverEffects();
+    };
+  
+    nextButton.addEventListener('click', e => {
+      const currentSlide = track.querySelector('.current-slide');
+      let nextSlide = currentSlide.nextElementSibling || slides[0];
+      moveToSlide(track, currentSlide, nextSlide);
+    });
+  
+    prevButton.addEventListener('click', e => {
+      const currentSlide = track.querySelector('.current-slide');
+      let prevSlide = currentSlide.previousElementSibling || slides[slides.length - 1];
+      moveToSlide(track, currentSlide, prevSlide);
+    });
+  
+    // Efecto hover para destacar la imagen en color y opacar las demás
+    slides.forEach(slide => {
+      slide.addEventListener('mouseenter', () => {
+        slides.forEach(s => s.classList.add('dimmed'));
+        slide.classList.remove('dimmed');
+        slide.classList.add('hovered');
+      });
+      slide.addEventListener('mouseleave', () => {
+        resetHoverEffects();
+      });
+    });
+  
+    function resetHoverEffects() {
+      slides.forEach(s => {
+        s.classList.remove('hovered');
+        s.classList.remove('dimmed');
+      });
+    }
+  </script>
+  
+</body>
+</html>
+
